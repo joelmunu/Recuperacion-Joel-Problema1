@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Impresora {
@@ -31,6 +32,9 @@ public class Impresora {
         if (colaDeImpresion.size() == 0) {
             System.out.println("No hay trabajos pendientes");
         } else {
+            for (int i = 0; i < colaDeImpresion.size(); i++) {
+                colaDeImpresion.remove(0);
+            }
             return colaDeImpresion.remove(0);
         }
         return null;

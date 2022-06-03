@@ -6,7 +6,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean salir = false;
         Impresora miImpresora = new Impresora();
-        DocumentoOfimatico miDocumento = new DocumentoOfimatico("", "");
         // Este arraylist es para crear los documentos y pasarlos al arraylist de la cola de impresion
         ArrayList<DocumentoOfimatico> documentos = new ArrayList<DocumentoOfimatico>();
 
@@ -35,11 +34,11 @@ public class Main {
                 case 3:
                     if (miImpresora.isEncendido() == true) {
                         System.out.print("Introduce el nombre del documento: ");
-                        miDocumento.setNombre(sc.nextLine());
+                        String nombre = sc.nextLine();
                         System.out.print("Introduce el tamaño del documento: ");
-                        miDocumento.setTamanyo(sc.nextLine());
-                        documentos.add(miDocumento);
-                        miImpresora.anadirTrabajo(documentos.remove(0));
+                        String tamanyo = sc.nextLine();
+
+                        miImpresora.anadirTrabajo(new DocumentoOfimatico(nombre, tamanyo));
                         break;
                     } else {
                         System.out.println("La impresora está apagada");
